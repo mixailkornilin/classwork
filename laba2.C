@@ -1,14 +1,12 @@
 #include <stdio.h>
 
 int main() {
-    int number = 123; // Можно изменить на любое трехзначное число
+    int number = 123;
     
-    // Разбиваем число на цифры
-    int a = number / 100;       // 123 / 100 = 1
-    int b = (number / 10) % 10; // 123 / 10 = 12, 12 % 10 = 2
-    int c = number % 10;        // 123 % 10 = 3
+    int a = number / 100;       
+    int b = (number / 10) % 10;
+    int c = number % 10;
     
-    // Вычисляем сумму и произведение
     int sum = a + b + c;
     int product = a * b * c;
     
