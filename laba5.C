@@ -4,49 +4,51 @@
 #define PI 3.14
 
 int main() {
-    int element_number;
+    int choice;
     double value;
     
-    printf("Введите номер элемента (1-4) и его значение:\n");
-    printf("1 - радиус R\n");
-    printf("2 - диаметр D\n");
-    printf("3 - длина окружности L\n");
-    printf("4 - площадь круга S\n");
-    printf("Номер: ");
-    scanf("%d", &element_number);
-    printf("Значение: ");
+    printf("Что у нас известно?\n");
+    printf("1 - радиус\n");
+    printf("2 - диаметр\n");
+    printf("3 - длина окружности\n");
+    printf("4 - площадь круга\n");
+    printf("Твой выбор: ");
+    scanf("%d", &choice);
+    
+    printf("Введи значение: ");
     scanf("%lf", &value);
     
-    double R, D, L, S;
+    // Сначала найдем радиус, от него всё пляшем
+    double radius;
     
-    switch(element_number) {
-        case 1: // Радиус
-            R = value;
-            break;
-        case 2: // Диаметр
-            R = value / 2.0;
-            break;
-        case 3: // Длина окружности
-            R = value / (2.0 * PI);
-            break;
-        case 4: // Площадь круга
-            R = sqrt(value / PI);
-            break;
-        default:
-            printf("Ошибка: номер элемента должен быть от 1 до 4!\n");
-            return 1;
+    if (choice == 1) {
+        radius = value;  // тут всё просто
+    }
+    else if (choice == 2) {
+        radius = value / 2.0;  // диаметр пополам
+    }
+    else if (choice == 3) {
+        radius = value / (2.0 * PI);  // из длины окружности
+    }
+    else if (choice == 4) {
+        radius = sqrt(value / PI);  // из площади
+    }
+    else {
+        printf("Такого варианта нет! Выбирай от 1 до 4.\n");
+        return 1;
     }
     
-    D = 2.0 * R;
-    L = 2.0 * PI * R;
-    S = PI * R * R;
+    // Теперь считаем всё остальное
+    double diameter = 2.0 * radius;
+    double length = 2.0 * PI * radius;
+    double area = PI * radius * radius;
     
-
-    printf("\nРезультаты:\n");
-    printf("1. Радиус R = %.2f\n", R);
-    printf("2. Диаметр D = 2*R = %.2f\n", D);
-    printf("3. Длина окружности L = 2*π*R = %.2f\n", L);
-    printf("4. Площадь круга S = π*R² = %.2f\n", S);
+    // Покажем что получилось
+    printf("\nВот что у нас вышло:\n");
+    printf("Радиус:        %.2f\n", radius);
+    printf("Диаметр:       %.2f\n", diameter);
+    printf("Длина окружности: %.2f\n", length);
+    printf("Площадь круга:    %.2f\n", area);
     
     return 0;
 }
