@@ -8,7 +8,7 @@ int main() {
     
     int min;
     
-    // Поиск наименьшего числа
+  
     if (A <= B && A <= C) {
         min = A;
     } else if (B <= A && B <= C) {
