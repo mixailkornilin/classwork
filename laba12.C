@@ -1,16 +1,16 @@
 #include <stdio.h>
 
 void SortIndex(float A[], int N, int I[]) {
-    int i, j, tmp;
+    int i, j, temp;
     for (i = 0; i < N; i++) I[i] = i;
     
     
     for (i = 0; i < N-1; i++)
         for (j = 0; j < N-i-1; j++)
             if (A[I[j]] > A[I[j+1]]) {
-                tmp = I[j];
+                temp = I[j];
                 I[j] = I[j+1];
-                I[j+1] = tmp;
+                I[j+1] = temp;
             }
 }
 
